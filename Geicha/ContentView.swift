@@ -8,14 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var tea = Tea()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                HStack {
+                    Text("Sem přijde picker na velikost. Máme vybráno ....")
+                    Text("Your tea is \(tea.typ.description)")
+                    
+                    
+                }
+                Spacer()
+                VStack {
+                    NavigationLink {
+                            Text("Choose your Tea Latte")
+                        } label: {
+                            Text("Tea Latte Selection")
+                                .padding()
+                        }
+                        .navigationTitle("Geicha")
+                        
+                
+                    Text("Milk Tea")
+                    Text("Mousse Series")
+                    
+                }
+                Spacer()
+            }
+            
+        }
+        .padding(10)
+        .background(.indigo)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+//        AddView(expenses: Expenses())
     }
 }
