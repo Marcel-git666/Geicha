@@ -56,6 +56,9 @@ struct ContentView: View {
                             Text("Zimní meloun s čerstvým mlékem").tag(TeaLatte.winterMellonLatte)
                             
                         }
+                        .onChange(of: tea.teaLattetype) { _ in
+                            tea.type = TypeOfTea.teaLatte
+                        }
                         Text("Selected type: \(tea.teaLattetype.rawValue)")
                         } label: {
                             Text("Tea Latte Selection")
@@ -69,7 +72,7 @@ struct ContentView: View {
                     
                 }
                 Spacer()
-                Text("Your tea is \(tea.size.description) \(tea.type.description)")
+                Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.teaLattetype.rawValue)")
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
                 
