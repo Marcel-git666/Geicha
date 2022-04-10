@@ -45,6 +45,21 @@ enum TeaLatte: String, CustomStringConvertible, CaseIterable {
 
 }
 
+enum FruitTea: String, CustomStringConvertible, CaseIterable {
+    case peach = "broskev"
+    case passionFruit = "mučenka"
+    case mango = "mango"
+    case greenApple = "zelené jablko"
+    var id: String { self.rawValue }
+    var description: String {
+            get {
+                return self.rawValue
+            }
+    }
+
+}
+
+
 enum Topping: Codable {
     case none, tapioca, pudding, jellyCoconut, creamCheese, strawberryBoba, mangoBoba, passionFruitBoba
 }
@@ -54,6 +69,7 @@ class Tea: ObservableObject {
     @Published var size = SizeOfTea.large
     @Published var type = TypeOfTea.fruitTea
     @Published var teaLattetype = TeaLatte.matchaTeaLatte
+    @Published var fruitTeatype = FruitTea.peach
     @Published var topping = Topping.tapioca
     @Published var sugarLevel = 70
     @Published var withIce = true

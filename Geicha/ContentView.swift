@@ -65,17 +65,43 @@ struct ContentView: View {
                                 .padding()
                         }
                         .navigationTitle("Geicha")
+                    NavigationLink {
+                            Text("Choose your Fruit Tea:")
                         
+                        
+                        Picker("Type of Fruit Tea", selection: $tea.fruitTeatype ) {
+                            
+                            Text("Broskev").tag(FruitTea.peach)
+                            Text("Mango").tag(FruitTea.mango)
+                            Text("Mučenka").tag(FruitTea.passionFruit)
+                            Text("Zelené jablko").tag(FruitTea.greenApple)
+                            
+                        }
+                        .onChange(of: tea.fruitTeatype) { _ in
+                            tea.type = TypeOfTea.fruitTea
+                        }
+                        Text("Selected type: \(tea.fruitTeatype.rawValue)")
+                        } label: {
+                            Text("Fruit Tea Selection")
+                                .padding()
+                        }
                 
                     Text("Milk Tea")
                     Text("Mousse Series")
                     
                 }
                 Spacer()
-                Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.teaLattetype.rawValue)")
+                switch tea.type {
+                case TypeOfTea.fruitTea: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.fruitTeatype.rawValue)")
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
-                
+                case TypeOfTea.teaLatte: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.teaLattetype.rawValue)")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orange)
+                default: Text("Your tea is default :) ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orange)
+                }
             }
             
         }
