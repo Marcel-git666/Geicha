@@ -86,7 +86,26 @@ struct ContentView: View {
                                 .padding()
                         }
                 
-                    Text("Milk Tea")
+                    NavigationLink {
+                            Text("Choose your Milk Tea:")
+                        
+                        
+                        Picker("Type of Milk Tea", selection: $tea.milkTeatype ) {
+                            
+                            Text("Geicha mléčný čaj").tag(MilkTea.geichaSignature)
+                            Text("Ceylonský mléčný čaj").tag(MilkTea.ceylonMilkTea)
+                            Text("Thajský mléčný čaj").tag(MilkTea.thaiMilkTea)
+                            Text("Lískooříškový mléčný čaj").tag(MilkTea.hazelnutMilkTea)
+                            
+                        }
+                        .onChange(of: tea.milkTeatype) { _ in
+                            tea.type = TypeOfTea.milkTea
+                        }
+                        Text("Selected type: \(tea.milkTeatype.rawValue)")
+                        } label: {
+                            Text("Milk Tea Selection")
+                                .padding()
+                        }
                     Text("Mousse Series")
                     
                 }
@@ -96,6 +115,9 @@ struct ContentView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
                 case TypeOfTea.teaLatte: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.teaLattetype.rawValue)")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orange)
+                case TypeOfTea.milkTea: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.milkTeatype.rawValue)")
                         .fontWeight(.semibold)
                         .foregroundColor(.orange)
                 default: Text("Your tea is default :) ")
