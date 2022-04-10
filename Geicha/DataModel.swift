@@ -8,21 +8,41 @@
 import Foundation
 
 
-enum SizeOfTea: Codable {
-    case medium, large
-}
-
-enum TypeOfTea: String, CustomStringConvertible {
-    case specialTeaPresso = "Special Tea Presso"
-    case teaLatte = "Tea Latte"
-    case mousseSeries = "Mousse Series"
-    case milkTea = "Milk Tea"
-    case fruitTea = "Fruit Tea"
+enum SizeOfTea: String, CustomStringConvertible, CaseIterable {
+    case medium = "medium"
+    case large = "large"
+    var id: String { self.rawValue }
     var description: String {
             get {
                 return self.rawValue
             }
     }
+}
+
+enum TypeOfTea: String, CustomStringConvertible, CaseIterable {
+    case specialTeaPresso = "Special Tea Presso"
+    case teaLatte = "Tea Latte"
+    case mousseSeries = "Mousse Series"
+    case milkTea = "Milk Tea"
+    case fruitTea = "Fruit Tea"
+    var id: String { self.rawValue }
+    var description: String {
+            get {
+                return self.rawValue
+            }
+    }
+}
+
+enum TeaLatte: String, CustomStringConvertible, CaseIterable {
+    case matchaTeaLatte = "Matcha s čerstvým mlékem"
+    case winterMellonLatte = "Zimní meloun s čerstvým mlékem"
+    var id: String { self.rawValue }
+    var description: String {
+            get {
+                return self.rawValue
+            }
+    }
+
 }
 
 enum Topping: Codable {
@@ -31,8 +51,9 @@ enum Topping: Codable {
 
 class Tea: ObservableObject {
 //    var id = UUID()
-    @Published var size = SizeOfTea.medium
-    @Published var typ = TypeOfTea.fruitTea
+    @Published var size = SizeOfTea.large
+    @Published var type = TypeOfTea.fruitTea
+    @Published var teaLattetype = TeaLatte.matchaTeaLatte
     @Published var topping = Topping.tapioca
     @Published var sugarLevel = 70
     @Published var withIce = true

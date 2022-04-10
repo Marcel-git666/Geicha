@@ -10,20 +10,53 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var tea = Tea()
+    @State private var selectedM = false
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("Sem přijde picker na velikost. Máme vybráno ....")
-                    Text("Your tea is \(tea.typ.description)")
+                    
+                    Button("M") {
+                        selectedM.toggle()
+                        selectedM ? (tea.size = SizeOfTea.medium) : (tea.size = SizeOfTea.large)
+                        
+                    }
+                        .padding(10)
+                        .background(selectedM ? Color.purple : Color.gray)
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .border(selectedM ? Color.purple : Color.gray, width: 5)
+                    
+                    
+                    Button("L") {
+
+                        selectedM.toggle()
+                        selectedM ? (tea.size = SizeOfTea.medium) : (tea.size = SizeOfTea.large)
+
+                    }   .padding(10)
+                        .background(selectedM ? Color.gray : Color.purple)
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .border(selectedM ? Color.gray : Color.purple, width: 5)
+
+                    
                     
                     
                 }
                 Spacer()
                 VStack {
                     NavigationLink {
-                            Text("Choose your Tea Latte")
+                            Text("Choose your Tea Latte:")
+                        
+                        
+                        Picker("Type of Latte", selection: $tea.teaLattetype) {
+                            
+                            Text("Matcha Tea Latte").tag(TeaLatte.matchaTeaLatte)
+                            Text("Zimní meloun s čerstvým mlékem").tag(TeaLatte.winterMellonLatte)
+                            
+                        }
+                        Text("Selected type: \(tea.teaLattetype.rawValue)")
                         } label: {
                             Text("Tea Latte Selection")
                                 .padding()
@@ -36,6 +69,10 @@ struct ContentView: View {
                     
                 }
                 Spacer()
+                Text("Your tea is \(tea.size.description) \(tea.type.description)")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.orange)
+                
             }
             
         }
