@@ -106,7 +106,26 @@ struct ContentView: View {
                             Text("Milk Tea Selection")
                                 .padding()
                         }
-                    Text("Mousse Series")
+                    
+                    NavigationLink {
+                            Text("Choose your Mousse Series Tea:")
+                        
+                        
+                        Picker("Type of Mousse Series", selection: $tea.mousseTeatype ) {
+                            
+                            Text("Matcha pěna").tag(MousseSeries.matchaMousse)
+                            Text("Čoko pěna").tag(MousseSeries.chocoMousse)
+                            Text("Zimní melou pěna").tag(MousseSeries.melonMousse)
+                            
+                        }
+                        .onChange(of: tea.mousseTeatype) { _ in
+                            tea.type = TypeOfTea.mousseSeries
+                        }
+                        Text("Selected type: \(tea.mousseTeatype.rawValue)")
+                        } label: {
+                            Text("Mousse Series Selection")
+                                .padding()
+                        }
                     
                 }
                 Spacer()
@@ -118,6 +137,9 @@ struct ContentView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.orange)
                 case TypeOfTea.milkTea: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.milkTeatype.rawValue)")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orange)
+                case TypeOfTea.mousseSeries: Text("Your tea is \(tea.size.description) \(tea.type.description) \(tea.mousseTeatype.rawValue)")
                         .fontWeight(.semibold)
                         .foregroundColor(.orange)
                 default: Text("Your tea is default :) ")

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F17F5112810A3A40032B5DA /* Snimek_obrazovky_2022-03-14_v_16.19.06.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F17F5102810A3A30032B5DA /* Snimek_obrazovky_2022-03-14_v_16.19.06.png */; };
 		1F38DAE327DF96C700EC97CD /* GeichaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F38DAE227DF96C700EC97CD /* GeichaApp.swift */; };
 		1F38DAE527DF96C700EC97CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F38DAE427DF96C700EC97CD /* ContentView.swift */; };
 		1F38DAE727DF96C900EC97CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38DAE627DF96C900EC97CD /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F17F5102810A3A30032B5DA /* Snimek_obrazovky_2022-03-14_v_16.19.06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snimek_obrazovky_2022-03-14_v_16.19.06.png"; sourceTree = "<group>"; };
 		1F38DADF27DF96C700EC97CD /* Geicha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geicha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F38DAE227DF96C700EC97CD /* GeichaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeichaApp.swift; sourceTree = "<group>"; };
 		1F38DAE427DF96C700EC97CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		1F38DAE127DF96C700EC97CD /* Geicha */ = {
 			isa = PBXGroup;
 			children = (
+				1F17F5102810A3A30032B5DA /* Snimek_obrazovky_2022-03-14_v_16.19.06.png */,
 				1F38DAE227DF96C700EC97CD /* GeichaApp.swift */,
 				1F38DAE427DF96C700EC97CD /* ContentView.swift */,
 				1F38DAF027DFC46100EC97CD /* DataModel.swift */,
@@ -130,6 +133,7 @@
 			files = (
 				1F38DAEA27DF96C900EC97CD /* Preview Assets.xcassets in Resources */,
 				1F38DAE727DF96C900EC97CD /* Assets.xcassets in Resources */,
+				1F17F5112810A3A40032B5DA /* Snimek_obrazovky_2022-03-14_v_16.19.06.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
