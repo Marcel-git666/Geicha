@@ -88,8 +88,9 @@ enum MousseSeries: String, CustomStringConvertible, CaseIterable {
 }
 
 
-enum Topping: Codable {
-    case none, tapioca, pudding, jellyCoconut, creamCheese, strawberryBoba, mangoBoba, passionFruitBoba
+enum Topping: String, CaseIterable, Identifiable {
+    case none, tapioca, pudding, jellyCoconut, jellyRainbow, creamCheese, strawberryBoba, mangoBoba, passionFruitBoba
+    var id: String { self.rawValue }
 }
 
 class Tea: ObservableObject {
